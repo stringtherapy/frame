@@ -9,7 +9,7 @@ $code =  file_get_contents('code.txt');
 $code_array = explode(";",$code);
 
 //variables to be extracted
-//$connection_variable = '';
+$connection_variable = '';
 $first_half = '';
 $placeholders = '';
 $data_types = '';
