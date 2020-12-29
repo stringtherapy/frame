@@ -37,7 +37,7 @@ for ($i = 0; $i < $values_count; $i++){
 }
 	 $data_types .= $types;
 
-
+//execution
 $stmt   =  mysqli_stmt_init($conn);   
 $query  =  $first_half.$placeholders;  
 
