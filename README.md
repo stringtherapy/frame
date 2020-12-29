@@ -1,4 +1,3 @@
-# frame
 # Automate PHP security solutions
 
 * Tested to work with "INSERT" operation
