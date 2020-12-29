@@ -44,7 +44,7 @@ $query  =  $first_half.$placeholders;
 if(mysqli_stmt_prepare($stmt,$query)){
 	mysqli_stmt_bind_param($stmt, $data_types, ...$values_array);		
 	mysqli_stmt_execute($stmt);
-} else echo "failure";
+}
 
 }
 
