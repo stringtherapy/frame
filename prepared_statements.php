@@ -2,7 +2,7 @@
 
 function prepared_mysqli_query($conn,$query) {
 
-//initializing variables needed
+//initializing required variables
 $first_half = '';
 $placeholders = '';
 $data_types = '';
