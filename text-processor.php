@@ -1,7 +1,7 @@
 <?php 
 
 //php-to-txt
-$test = file_get_contents("code.php");
+$test = file_get_contents("sql_code.php");
 file_put_contents("code.txt", $test);
 
 //getting input: mysql code
@@ -21,9 +21,9 @@ foreach ($code_array as $string){
 	//get connection variable
 	if (strpos($string, 'mysqli_query(') !== false) {
 
-		$line_start = strpos($string,'mysqli_query');
-		$line_end = strpos($string,')',$line_start);
-		$line_length = $line_end - $line_start;
+		$line_start      = strpos($string,'mysqli_query');
+		$line_end        = strpos($string,')',$line_start);
+		$line_length     = $line_end - $line_start;
 		$line_of_interest = substr($string,$line_start,($line_length+1));
 
 	    
@@ -40,7 +40,7 @@ foreach ($code_array as $string){
 
 		$table_start1   = strpos($string,'INSERT INTO');
 		$table_start 	= strpos($string,'INSERT INTO'[-1]);
-		$table_end 		= strpos($string,'(');
+		$table_end 	= strpos($string,'(');
 		$table_length 	= $table_end - $table_start;
 		$table_name 	= substr($string,($table_start+1),($table_length-1));
 
@@ -83,7 +83,7 @@ foreach ($code_array as $string){
 	}
 }
 
-//getting output: safer mysql code
+//getting output: safer code
 $ok= "<?php 
 	  \$stmt   =  mysqli_stmt_init($connection_variable);   
 	  \$query  =  $first_half $placeholders;  
@@ -95,6 +95,6 @@ $ok= "<?php
 ?>"; 
 
 
-file_put_contents("coder2.php", $ok);
+file_put_contents("sql_safer_code.php", $ok);
 
 ?>
